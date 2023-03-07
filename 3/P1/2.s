@@ -40,9 +40,9 @@ while:
 
     xor $t2, $t2, 0x0001   # invert bit0
 
-    lw $t3, PORTE($t1)      # READ PORTE
+    lw $t3, LATE($t1)      # READ LATE
     andi $t3, $t3, 0xFFFE   # clear bit0
     or $t3, $t3, $t2        # bit0=RB0
-    sw $t3, PORTE($t1)      # WRITE to PORTE
+    sw $t3, LATE($t1)      # WRITE to LATE
 
     j while
