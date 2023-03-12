@@ -1,0 +1,18 @@
+services:
+  ac-ii:
+    container_name: ac-ii
+    
+    build: .
+
+    volumes:
+      - ../.:/root/ac-ii
+
+    privileged: true
+
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+
+    group_add:
+      - dialout
+
+    tty: true
