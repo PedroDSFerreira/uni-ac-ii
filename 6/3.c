@@ -25,16 +25,20 @@ int main(void)
     {
         // Start conversion
         AD1CON1bits.ASAM = 1; 
+
         // Wait while conversion not done (AD1IF == 0)
         while(IFS1bits.AD1IF == 0 );
+
         // Read conversion result (ADC1BUF0 value) and print it
         putChar('\r');
+
         int *p = (int *)(&ADC1BUF0);
         int i;
         for(i = 0; i < 16; i++ ) {
             printInt( p[i*4], 10 | 4 << 16);
             putChar(' ');
         } 
+        
         // Reset AD1IF
         IFS1bits.AD1IF = 0;
     }
