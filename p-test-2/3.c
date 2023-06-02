@@ -59,8 +59,7 @@ void configureUART(int baud_rate, char parity, int data_bits, int stop_bits)
             U2MODEbits.PDSEL = 0;
             break;
 
-    }
-    U2MODEbits.PDSEL = 0;           // 0 (8N), 1 (8E), 2 (8O), 3 (9N) --- ver manual
+   } 
     U2MODEbits.STSEL = stop_bits -1; // 0 (1 stop bits), 1 (2 stop bits) --- ver manual
     U2STAbits.UTXEN = 1;            // ativa transmissão (ver nota abaixo)
     U2STAbits.URXEN = 1;            // ativa receção (ver nota abaixo)
